@@ -1,0 +1,2140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.1">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Serializable Workshop Demo" enabled="true">
+      <stringProp name="TestPlan.comments">Demo and Lab activities for the workshop</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="CRDB JDBC Pool" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">movr-pool</stringProp>
+        <stringProp name="dbUrl">jdbc:postgresql://localhost:26257/movr?autoReconnect=true&amp;sslmode=disable&amp;ssl=false&amp;ApplicationName=movr1-1</stringProp>
+        <stringProp name="driver">org.postgresql.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password"></stringProp>
+        <stringProp name="poolMax">3</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">TRANSACTION_SERIALIZABLE</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">root</stringProp>
+        <boolProp name="preinit">false</boolProp>
+        <stringProp name="initQuery"></stringProp>
+        <stringProp name="connectionProperties"></stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="CRDB JDBC Pool 2" enabled="true">
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="checkQuery">Select 1</stringProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="dataSource">central2</stringProp>
+        <stringProp name="dbUrl">jdbc:postgresql://localhost:26257/serial?autoReconnect=true&amp;sslmode=disable&amp;ssl=false&amp;ApplicationName=Demo5b</stringProp>
+        <stringProp name="driver">org.postgresql.Driver</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="password"></stringProp>
+        <stringProp name="poolMax">3</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="transactionIsolation">TRANSACTION_SERIALIZABLE</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <stringProp name="username">root</stringProp>
+        <boolProp name="preinit">false</boolProp>
+        <stringProp name="initQuery"></stringProp>
+        <stringProp name="connectionProperties"></stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <boolProp name="useGroupName">true</boolProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <boolProp name="ResultCollector.success_only_logging">true</boolProp>
+        <stringProp name="RespTimeGraph.yaxisscaleincrement">log</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesPercentilesGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Percentiles" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseTimesOverTimeGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Times Over Time" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+      <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.TransactionsPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Transactions per Second" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+        <longProp name="interval_grouping">500</longProp>
+        <boolProp name="graph_aggregated">false</boolProp>
+        <stringProp name="include_sample_labels"></stringProp>
+        <stringProp name="exclude_sample_labels"></stringProp>
+        <stringProp name="start_offset"></stringProp>
+        <stringProp name="end_offset"></stringProp>
+        <boolProp name="include_checkbox_state">false</boolProp>
+        <boolProp name="exclude_checkbox_state">false</boolProp>
+      </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #1 :: Contention Selects and Updates" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,40)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_high" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+SELECT * FROM alerts WHERE customer_id=9743;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_low" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY LOW;
+
+SELECT * FROM alerts WHERE customer_id=9743;
+
+COMMIT; </stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SELECT * FROM alerts WHERE customer_id=9743;
+
+COMMIT;
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_implicit" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9743;
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_follower_reads" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts as of system time follower_read_timestamp() WHERE customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal_different_id" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9800;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_low" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY LOW;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() WHERE customer_id=9743;
+--SELECT pg_sleep(1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY NORMAL;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() WHERE customer_id=9743;
+SELECT pg_sleep(1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_high" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE customer_id=9743;
+
+SELECT pg_sleep(0.3);
+--SELECT pg_sleep(5);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #1b :: Contention Selects and Updates" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,30)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller" enabled="true">
+          <intProp name="InterleaveControl.style">1</intProp>
+        </RandomController>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_high" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+SELECT * FROM alerts WHERE customer_id=9743;
+
+COMMIT;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="insert_rides" enabled="true">
+            <stringProp name="dataSource">movr-pool</stringProp>
+            <stringProp name="queryType">Prepared Update Statement</stringProp>
+            <stringProp name="query">INSERT INTO rides (id, city, rider_id, vehicle_id) values (gen_random_uuid(), ?, ?, ?)</stringProp>
+            <stringProp name="queryArguments">${USER_CITY},${USER_ID},${VEHICLE_ID}</stringProp>
+            <stringProp name="queryArgumentsTypes">varchar,varchar,varchar</stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_rides_random_city" enabled="true">
+            <stringProp name="dataSource">movr-pool</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT id FROM rides WHERE city = ?;
+</stringProp>
+            <stringProp name="queryArguments">${CITY}</stringProp>
+            <stringProp name="queryArgumentsTypes">varchar</stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_city_from_random_user" enabled="true">
+            <stringProp name="dataSource">movr-pool</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT city FROM users WHERE id = ?;
+</stringProp>
+            <stringProp name="queryArguments">${USER_ID}</stringProp>
+            <stringProp name="queryArgumentsTypes">varchar</stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>1.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>10000.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_implicit" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9743;
+</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_follower_reads" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT * FROM alerts as of system time follower_read_timestamp() WHERE customer_id=9743;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal_different_id" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9800;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>10000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_low" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY LOW;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() WHERE customer_id=9743;
+--SELECT pg_sleep(1);
+
+COMMIT;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>2000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_normal" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY NORMAL;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() WHERE customer_id=9743;
+--SELECT pg_sleep(1);
+
+COMMIT;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>2000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_high" enabled="false">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE customer_id=9743;
+
+SELECT pg_sleep(0.3);
+--SELECT pg_sleep(5);
+
+COMMIT;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+          </JDBCSampler>
+          <hashTree>
+            <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+              <doubleProp>
+                <name>allowedThroughputSurplus</name>
+                <value>1.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="batchSize">3</intProp>
+              <intProp name="batchThreadDelay">0</intProp>
+              <longProp name="duration">100</longProp>
+              <intProp name="exactLimit">10000</intProp>
+              <longProp name="randomSeed">0</longProp>
+              <doubleProp>
+                <name>throughput</name>
+                <value>2000.0</value>
+                <savedValue>0.0</savedValue>
+              </doubleProp>
+              <intProp name="throughputPeriod">100</intProp>
+            </PreciseThroughputTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #2 :: BULK_UPDATES Scaling Limits" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">6</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,60)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts 
+WHERE customer_id=9743;
+
+--SELECT * FROM alerts 
+--WHERE customer_id=${__Random(1000,1009)}</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>10000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="bulk_update_limit_100" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE severity=${__Random(0,10)} LIMIT 100;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="bulk_update_limit_1000" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE severity=${__Random(0,10)} LIMIT 1000;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="bulk_update_limit_5000" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE severity=${__Random(0,10)} LIMIT 5000;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="bulk_update_limit_10000" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE severity=${__Random(0,10)} LIMIT 10000;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #3 :: Retries with Updates" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,300)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="TestPlan.comments">USE CLI to demonstrate Retries ::: Run with update_low and update_high to get two differnt retry errors</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_high" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE customer_id=9743;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="true">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_low" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY LOW;
+
+UPDATE alerts SET cstatus=cstatus, updated_at=now() 
+WHERE customer_id=9743;
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #4 :: Implicit Transactions with SFU" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,60)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <stringProp name="TestPlan.comments">set cluster setting sql.defaults.implicit_select_for_update.enabled=true/false and run with the two differnt updates</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_sfu" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- update_sfu
+UPDATE alerts 
+SET cstatus=cstatus, updated_at=now() 
+WHERE customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <PreciseThroughputTimer guiclass="TestBeanGUI" testclass="PreciseThroughputTimer" testname="Precise Throughput Timer" enabled="false">
+            <doubleProp>
+              <name>allowedThroughputSurplus</name>
+              <value>1.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="batchSize">3</intProp>
+            <intProp name="batchThreadDelay">0</intProp>
+            <longProp name="duration">100</longProp>
+            <intProp name="exactLimit">10000</intProp>
+            <longProp name="randomSeed">0</longProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>2000.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+            <intProp name="throughputPeriod">100</intProp>
+          </PreciseThroughputTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #5" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">2</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,20)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_high" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+SELECT * FROM alerts WHERE customer_id=9743;
+--SELECT * FROM alerts;
+--SELECT pg_sleep(0.1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_no_tx" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY NORMAL;
+SELECT * FROM alerts WHERE customer_id=9743;
+--SELECT * FROM alerts;
+--SELECT pg_sleep(0.1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_high" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY HIGH;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY NORMAL;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Add an artifical delay before committing
+
+--SELECT pg_sleep(0.5);
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_no_tx" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_low" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY LOW;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #6" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,20)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_high" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+SELECT * FROM alerts WHERE customer_id=9743;
+--SELECT * FROM alerts;
+--SELECT pg_sleep(0.1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_no_tx" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY NORMAL;
+SELECT * FROM alerts WHERE customer_id=9743;
+--SELECT * FROM alerts;
+--SELECT pg_sleep(0.1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_high" enabled="true">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY HIGH;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY NORMAL;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Add an artifical delay before committing
+
+--SELECT pg_sleep(0.5);
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_no_tx" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_low" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY LOW;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Demo #7" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration,30)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller" enabled="false"/>
+        <hashTree>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Disable enable_implicit_select_for_update" enabled="true">
+            <stringProp name="dataSource">central</stringProp>
+            <stringProp name="queryType">Callable Statement</stringProp>
+            <stringProp name="query">SET enable_implicit_select_for_update = 0;</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetMaxRows"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_high" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY HIGH;
+SELECT * FROM alerts WHERE customer_id=9743;
+--SELECT * FROM alerts;
+--SELECT pg_sleep(0.1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_no_tx" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">SELECT * FROM alerts WHERE customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="select_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">BEGIN;
+
+SET TRANSACTION PRIORITY NORMAL;
+SELECT * FROM alerts WHERE customer_id=9743;
+--SELECT * FROM alerts;
+--SELECT pg_sleep(0.1);
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_high" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY HIGH;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_normal" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY NORMAL;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Add an artifical delay before committing
+
+--SELECT pg_sleep(0.5);
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_multiple_statements" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority
+
+SET TRANSACTION PRIORITY NORMAL;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9744;
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9745;
+
+-- Add an artifical delay before committing
+
+--SELECT pg_sleep(0.5);
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_no_tx" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="update_low" enabled="false">
+          <stringProp name="dataSource">central</stringProp>
+          <stringProp name="queryType">Callable Statement</stringProp>
+          <stringProp name="query">-- Start Transaction
+
+BEGIN;
+
+-- Set priority to high
+
+SET TRANSACTION PRIORITY LOW;
+
+-- Update alerts
+
+UPDATE 
+	alerts 
+SET
+	cstatus=cstatus, updated_at=now() 
+WHERE 
+	customer_id=9743;
+
+-- Commit transaction
+
+COMMIT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <InterleaveControl guiclass="InterleaveControlGui" testclass="InterleaveControl" testname="Interleave Controller" enabled="true">
+          <intProp name="InterleaveControl.style">1</intProp>
+          <boolProp name="InterleaveControl.accrossThreads">false</boolProp>
+        </InterleaveControl>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Transaction Controller" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </LoopController>
+        <hashTree/>
+        <RandomOrderController guiclass="RandomOrderControllerGui" testclass="RandomOrderController" testname="Random Order Controller" enabled="true"/>
+        <hashTree/>
+      </hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </Arguments>
+      <hashTree/>
+      <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="Random Variable" enabled="true">
+        <stringProp name="maximumValue"></stringProp>
+        <stringProp name="minimumValue">1</stringProp>
+        <stringProp name="outputFormat"></stringProp>
+        <boolProp name="perThread">false</boolProp>
+        <stringProp name="randomSeed"></stringProp>
+        <stringProp name="variableName"></stringProp>
+      </RandomVariableConfig>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Test Data - Cities" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="filename">jmeter/cities.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">CITY</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Test Data - Users" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="filename">jmeter/users.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">USER_ID,USER_CITY</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+      <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Test Data - Vehicles" enabled="true">
+        <stringProp name="delimiter">,</stringProp>
+        <stringProp name="fileEncoding"></stringProp>
+        <stringProp name="filename">jmeter/vehicles.csv</stringProp>
+        <boolProp name="ignoreFirstLine">false</boolProp>
+        <boolProp name="quotedData">false</boolProp>
+        <boolProp name="recycle">true</boolProp>
+        <stringProp name="shareMode">shareMode.all</stringProp>
+        <boolProp name="stopThread">false</boolProp>
+        <stringProp name="variableNames">VEHICLE_ID</stringProp>
+      </CSVDataSet>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

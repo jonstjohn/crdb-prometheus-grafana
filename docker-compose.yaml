@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  roach-newyork-1:
+    image: cockroachdb/cockroach:latest
+    command: start --insecure --join=roach-newyork-1,roach-newyork-2,roach-newyork-3 --locality=region=us-east4,zone=a
+    ports:
+      - "8080:8080"
+    volumes:
+      - /cockroach/cockroach-data
+  roach-newyork-2:
+    image: cockroachdb/cockroach:latest
+    command: start --insecure --join=roach-newyork-1,roach-newyork-2,roach-newyork-3 --locality=region=us-east4,zone=a
+    ports:
+      - "8081:8080"
+    volumes:
+      - /cockroach/cockroach-data
+  roach-newyork-3:
+    image: cockroachdb/cockroach:latest
+    command: start --insecure --join=roach-newyork-1,roach-newyork-2,roach-newyork-3 --locality=region=us-east4,zone=a
+    ports:
+      - "8082:8080"
+    volumes:
+      - /cockroach/cockroach-data
+  haproxy-newyork:
+    image: haproxy:1.7
+    ports: 
+      - "26257:26257"
+    volumes:
+      - ${PWD}/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ${PWD}/rules:/etc/prometheus/rules
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+
+
+
+
